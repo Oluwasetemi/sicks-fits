@@ -1,3 +1,4 @@
+/* eslint-disable react/state-in-constructor */
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -44,7 +45,6 @@ class Signup extends Component {
             onSubmit={async e => {
               e.preventDefault();
               const res = await signup();
-              console.log(res);
               this.setState({ name: '', password: '', email: '' });
             }}
           >
