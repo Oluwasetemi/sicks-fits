@@ -45,7 +45,7 @@ class CreateItem extends Component {
   };
 
   handleChange = e => {
-    const { ame, type, value } = e.target;
+    const { name, type, value } = e.target;
     const val = type === 'number' ? parseFloat(value) : value;
     this.setState({ [name]: val });
   };
