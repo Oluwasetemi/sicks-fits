@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/state-in-constructor */
-import React, { Component } from 'react';
-import { ApolloConsumer } from 'react-apollo';
+import Downshift, { resetIdCounter } from 'downshift';
 import gql from 'graphql-tag';
 import debounce from 'lodash.debounce';
-import Downshift, { resetIdCounter } from 'downshift';
 import Router from 'next/router';
+import React, { Component } from 'react';
+import { ApolloConsumer } from 'react-apollo';
 import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown';
 
 const SEARCH_ITEM_QUERY = gql`

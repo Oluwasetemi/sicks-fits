@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
 import { formatDistance } from 'date-fns';
+import gql from 'graphql-tag';
 import Link from 'next/link';
+import React, { Component } from 'react';
+import { Query } from 'react-apollo';
 import styled from 'styled-components';
-import Error from './ErrorMessage';
 import formatMoney from '../lib/formatMoney';
+import Error from './ErrorMessage';
 import OrderItemStyles from './styles/OrderItemStyles';
 
 const ALL_ORDER_QUERY = gql`
@@ -26,7 +26,7 @@ const ALL_ORDER_QUERY = gql`
   }
 `;
 
-const orderUI = styled.ul`
+const OrderUI = styled.ul`
   display: grid;
   grid-gap: 4rem;
   grid-template-columns: repeat(auto-fit, minimax(40%, 1fr));
@@ -41,8 +41,8 @@ export default class Orders extends Component {
           if (loading) return <p>loading ....</p>;
           return (
             <div>
-              <h2>You have {orders.length}order</h2>
-              <orderUI>
+              <h2>You have {orders.length} order{orders.length > 1 ? 's' : ''}</h2>
+              <OrderUI>
                 {orders.map(order => (
                   <OrderItemStyles key={order.id}>
                     <Link
@@ -74,7 +74,7 @@ export default class Orders extends Component {
                     </Link>
                   </OrderItemStyles>
                 ))}
-              </orderUI>
+              </OrderUI>
             </div>
           );
         }}
