@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import { Mutation } from 'react-apollo';
-import NavStyles from './styles/NavStyles';
-import User from './User';
-import Signout from './Signout';
 import { TOGGLE_CART_MUTATION } from './Cart';
 import CartCount from './CartCount';
+import Signout from './Signout';
+import NavStyles from './styles/NavStyles';
+import User from './User';
 
 const Nav = () => (
   <User>
     {({ data: { me } }) => (
-      <NavStyles>
+      <NavStyles data-test="nav">
         <Link href="/items">
           <a>Shop</a>
         </Link>
